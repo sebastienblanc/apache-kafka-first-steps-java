@@ -1,0 +1,10 @@
+client-ssl.properties
+target
+.idea
+.DS_Store
+keys
+out
+gradle
+.gradle
+gradlew.bat
+gradlew
