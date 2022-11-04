@@ -12,7 +12,7 @@ import java.util.Properties;
 
 public class Consumer {
     public static void main(String[] args) {
-        Logger logger = LoggerFactory.getLogger(Producer_multiple_messages.class.getName());
+        Logger logger = LoggerFactory.getLogger(Consumer.class.getName());
 
         // step # 1: create a consumer and connect to the cluster
         // get connection data from the configuration file

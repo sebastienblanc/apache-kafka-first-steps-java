@@ -1,6 +1,8 @@
 import io.github.cdimascio.dotenv.Dotenv;
+import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -40,15 +42,26 @@ public class Producer_one_message {
 
         // step # 3: create a message record
         JSONObject message = new JSONObject();
-        message.put("customer", "Marty");
-        message.put("product", "skateboard");
+        message.put("customer", "Judy Hopps\uD83D\uDC30");
+        message.put("product", "Carrot \uD83E\uDD55");
         message.put("operation", "ordered");
         // package the message in the record
         ProducerRecord<String, String> record =
                 new ProducerRecord<>(topicName, message.toString());
+        logger.info("Record created: " + record);
 
         // step # 4: send data to the cluster
-        producer.send(record);
-        logger.info("Sent: " + message);
+        producer.send(record, new Callback() {
+            @Override
+            public void onCompletion(RecordMetadata metadata, Exception exception) {
+                if(exception == null) {
+                    logger.info("Sent successfully. Metadata: " + metadata.toString());
+                } else {
+                    exception.printStackTrace();
+                }
+            }
+        });
+        producer.flush();
+        producer.close();
     }
 }
