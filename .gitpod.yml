@@ -4,5 +4,9 @@ tasks:
   - name: Install avn CLI
     init: pip install aiven-client
   - name: Open Readme
-    command: gp open README.md
+    init: gp open README.md
+  - name: Open Producer
+    init: gp open src/main/java/org/example/ProducerMutlipleMessages.java
+  - name: Open Consumer
+    init: gp open src/main/java/org/example/Consumer.java
 
