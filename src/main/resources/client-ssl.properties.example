@@ -1,7 +1,0 @@
-service-uri=
-ssl.truststore.location=
-ssl.truststore.password=
-ssl.keystore.type=
-ssl.keystore.location=
-ssl.keystore.password=
-ssl.key.password=

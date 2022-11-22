@@ -34,9 +34,7 @@ public class Consumer {
                         consumer.poll(Duration.ofMillis(100));
                 // process new data
                 for (ConsumerRecord<String,String> record : records) {
-                    logger.info("partition " + record.partition() +
-                            "| offset " + record.offset() +
-                            "| " + record.value() );
+                    logger.info("message: " + record.value());
                 }
             }
         }

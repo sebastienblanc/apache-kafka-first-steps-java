@@ -3,6 +3,7 @@ import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,8 @@ public class ProducerMultipleMessages {
         // step # 1: create a producer and connect to the cluster
         // get connection data from the configuration file
         Properties properties = Utils.loadProperties();
+        properties.put("key.serializer", StringSerializer.class.getName());
+        properties.put("value.serializer", StringSerializer.class.getName());
 
         try (KafkaProducer<String,String> producer = new KafkaProducer<>(properties)) {
             // step # 2: define the topic name
