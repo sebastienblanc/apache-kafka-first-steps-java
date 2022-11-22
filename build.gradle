@@ -5,6 +5,14 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/resources"
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
@@ -12,8 +20,6 @@ repositories {
 dependencies {
     // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
         implementation 'org.apache.kafka:kafka-clients:3.3.1'
-    // https://mvnrepository.com/artifact/io.github.cdimascio/dotenv-java
-        implementation 'io.github.cdimascio:dotenv-java:2.2.4'
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
         implementation 'org.slf4j:slf4j-simple:2.0.3'
     // https://mvnrepository.com/artifact/org.json/json
