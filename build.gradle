@@ -13,6 +13,30 @@ sourceSets {
     }
 }
 
+rootProject.tasks.named("processResources") {
+    duplicatesStrategy = 'include'
+}
+
+task(runProducerMultipleMessages, dependsOn: 'classes', type: JavaExec) {
+   main = 'org.example.ProducerMultipleMessages'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task(runProducerMultipleMessagesWithKey, dependsOn: 'classes', type: JavaExec) {
+   main = 'org.example.ProducerMultipleMessagesWithKey'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task(runProducerOneMessage, dependsOn: 'classes', type: JavaExec) {
+   main = 'org.example.ProducerOneMessage'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task(runConsumer, dependsOn: 'classes', type: JavaExec) {
+   main = 'org.example.Consumer'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
 repositories {
     mavenCentral()
 }

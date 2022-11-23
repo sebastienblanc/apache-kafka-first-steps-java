@@ -4,10 +4,8 @@ target
 .DS_Store
 keys
 out
-gradle
 .gradle
-gradlew.bat
-gradlew
+build/
 bin/
 .vscode/
 src/main/resources/client.properties
