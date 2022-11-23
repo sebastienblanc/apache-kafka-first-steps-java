@@ -6,7 +6,7 @@ tasks:
   - name: Open Readme
     init: gp open README.md
   - name: Open Producer
-    init: gp open src/main/java/org/example/ProducerMutlipleMessages.java
+    init: gp open src/main/java/org/example/ProducerMultipleMessages.java
   - name: Open Consumer
     init: gp open src/main/java/org/example/Consumer.java
 
